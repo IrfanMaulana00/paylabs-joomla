@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.1" type="plugin" group="vmpayment" method="install">
+  <name>Paylabs</name>
+  <creationDate>Januari 20 2024</creationDate>
+  <author>PT Wahana Pembayaran Digital (Paylabs)</author>
+  <authorUrl>https://paylabs.co.id</authorUrl>
+  <authorEmail>cs@paylabs.co.id</authorEmail>
+  <copyright>Copyright (C) 2024 PT Wahana Pembayaran Digital (Paylabs). All rights reserved.</copyright>
+  <license>The MIT License (MIT)</license>
+  <version>1.2.0</version>
+  <description><![CDATA[<a href="https://paylabs.co.id" target="_blank">Paylabs</a> Pilihan Payment Gateway Terbaik. ]]></description>
+  <files>
+    <filename plugin="paylabs">paylabs.php</filename> 
+    <folder>paylabs-php</folder>
+    <folder>language</folder>
+	<folder>paylabs</folder>	
+  </files>	
+  <vmconfig>
+        <fields name="params">
+            <fieldset name="payment" addfieldpath="/administrator/components/com_virtuemart/fields">
+                <field name="merchant_id" type="text" size="10" label="VMPAYMENT_PAYLABS_MERCHANT_ID"
+                       description="VMPAYMENT_PAYLABS_MERCHANT_ID_DESC"/>
+               <field name="paylabs_mode" type="list" default="sandbox" label="VMPAYMENT_PAYLABS_MODE"
+                       description="VMPAYMENT_PAYLABS_MODE_DESC">
+                    <option value="sandbox">VMPAYMENT_PAYLABS_MODE_SANDBOX</option>
+                    <option value="production">VMPAYMENT_PAYLABS_MODE_PRODUCTION</option>
+                </field>
+                <field name="paylabs_public_key_sandbox" type="textarea" label="VMPAYMENT_PAYLABS_PUBLIC_KEY_SANDBOX"
+                       description="VMPAYMENT_PAYLABS_PUBLIC_KEY_SANDBOX_DESC"/>
+                <field name="merchant_private_key_sandbox" type="textarea" label="VMPAYMENT_PAYLABS_PRIVATE_KEY_SANDBOX"
+                       description="VMPAYMENT_PAYLABS_PRIVATE_KEY_SANDBOX_DESC"/>              
+                <field name="paylabs_public_key" type="textarea" label="VMPAYMENT_PAYLABS_PUBLIC_KEY"
+                       description="VMPAYMENT_PAYLABS_PUBLIC_KEY_DESC"/>
+                <field name="merchant_private_key" type="textarea" label="VMPAYMENT_PAYLABS_PRIVATE_KEY"
+                       description="VMPAYMENT_PAYLABS_PRIVATE_KEY_DESC"/>              
+			    <field name="status_success" type="vmorderstate" scope="com_virtuemart" default="C"
+                       label="VMPAYMENT_PAYLABS_STATUS_SUCCESS" description="VMPAYMENT_PAYLABS_STATUS_SUCCESS_DESC"/>
+			    <field name="payment_logos" type="vmfiles" multiple="true" scope="com_virtuemart" label="VMPAYMENT_PAYLABS_LOGOS"
+                       description="VMPAYMENT_PAYLABS_LOGOS_DESC" directory="/images/stories/virtuemart/payment"
+                       default="default" hide_default="1" hide_none="1" stripext="0" exclude="^_"/>                
+            </fieldset>
+        </fields>
+    </vmconfig>
+</extension>
